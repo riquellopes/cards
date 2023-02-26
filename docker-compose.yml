@@ -1,6 +1,7 @@
 version: "3.8"
 services:
   cards:
+    restart: always
     build:
       context: .
       dockerfile: docker/Dockerfile
