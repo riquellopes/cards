@@ -20,11 +20,18 @@ class DollarToday(models.Model):
     create_at = models.DateTimeField(auto_now_add=True, editable=False)
 
 
+STATUS = (
+    (1, "Open"),
+    (2, "Closed"),
+    (3, "Paid"),
+)
+
 class FollowUpCard(models.Model):
     amount = models.DecimalField(max_digits=10, decimal_places=2)
     due_date = models.DateField()
     card = models.ForeignKey(Card, on_delete=models.CASCADE)
     notify = models.BooleanField(default=False)
+    status = models.IntegerField(choices=STATUS, default=1)
     create_at = models.DateTimeField(auto_now_add=True, editable=False)
     update_at = models.DateTimeField(auto_now=True, editable=False)
 

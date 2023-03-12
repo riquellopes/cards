@@ -18,4 +18,8 @@ createsuperuser:
 
 makemigrations:
 	docker-compose stop
-	docker-compose run --rm cards manage.py makemigrations ${app}
+	docker-compose run --rm cards manage.py makemigrations
+
+loaddata:
+	docker-compose stop
+	docker-compose run --rm cards manage.py loaddata db.json
